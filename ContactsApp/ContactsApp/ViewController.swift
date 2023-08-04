@@ -31,18 +31,16 @@ class ViewController: UIViewController {
         else {
             return
         }
-        // Create a new Contact with the provided data
-           let contact = Contact(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber)
+        let contact = Contact(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber)
             contactList.contacts.insert(contact, at: 0)
-        let indexPath = IndexPath(row: contactList.contacts.count - 1, section: 0)
-        navigationController?.popViewController(animated: true)
-         tableView.insertRows(at: [indexPath], with: .automatic)
-         tableView.reloadData()
-
-        // Save the updated contacts and reload the table view
+            let indexPath = IndexPath(row: contactList.contacts.count - 1, section: 0)
+            tableView.insertRows(at: [indexPath], with: .automatic)
+            // Save the updated contacts
             contactList.saveContacts()
+            // Reload the table view after saving the contacts
             tableView.reloadData()
-       
+            // Dismiss the current view controller after adding the contact
+            navigationController?.popViewController(animated: true)
     }
     
 }

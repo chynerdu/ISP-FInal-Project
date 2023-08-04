@@ -46,6 +46,7 @@ class ContactsTableViewController: UITableViewController {
         let phoneNumber = contact.phoneNumber
         let contactDetails = "\(firstName) \(lastName)\n\(phoneNumber)"
         cell.textLabel?.text = contactDetails
+        cell.textLabel?.numberOfLines = 0
         return cell
     }
     
