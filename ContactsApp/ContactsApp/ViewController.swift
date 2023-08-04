@@ -36,6 +36,8 @@ class ViewController: UIViewController {
         let contact = Contact(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber)
             contactList.contacts.insert(contact, at: 0)
             contactList.saveContacts()
+        // Sort the contacts array based on first name in alphabetical order
+            contactList.contacts.sort { $0.firstName.localizedCaseInsensitiveCompare($1.firstName) == .orderedAscending }
         if let contactsTableViewController = navigationController?.viewControllers.first as? ContactsTableViewController {
                     contactsTableViewController.contactList = contactList
                     contactsTableViewController.tableView.reloadData()

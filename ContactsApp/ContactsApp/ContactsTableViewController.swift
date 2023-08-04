@@ -22,6 +22,8 @@ class ContactsTableViewController: UITableViewController {
         contactList.fetch()
         tableView.delegate = self
         tableView.dataSource = self
+        // Sort the contacts array based on first name in alphabetical order
+        contactList.contacts.sort { $0.firstName.localizedCaseInsensitiveCompare($1.firstName) == .orderedAscending }
     }
 
     // MARK: - Table view data source
