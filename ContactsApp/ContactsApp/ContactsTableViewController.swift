@@ -20,6 +20,8 @@ class ContactsTableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         contactList = ContactList()
         contactList.fetch()
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     // MARK: - Table view data source
@@ -31,13 +33,15 @@ class ContactsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        print("Number of rows: \(contactList.contacts.count)")
+
         return contactList.contacts.count
+
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactList", for: indexPath)
-
         // Configure the cell...
         let row = indexPath.row
         let contact = contactList.contacts[row]
@@ -47,7 +51,9 @@ class ContactsTableViewController: UITableViewController {
         let contactDetails = "\(firstName) \(lastName)\n\(phoneNumber)"
         cell.textLabel?.text = contactDetails
         cell.textLabel?.numberOfLines = 0
+        print("Cell content at row \(row): \(contactDetails)")
         return cell
+        
     }
     
 
