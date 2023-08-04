@@ -33,6 +33,11 @@ class ContactList {
         contacts.append(newContact)
         saveContacts()
     }
+    func deleteContact(indexPath: IndexPath){
+                let index = indexPath.row
+                contacts.remove(at: index)
+                saveContacts()
+            }
 
     func saveContacts() {
         do {
