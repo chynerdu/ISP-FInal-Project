@@ -31,7 +31,12 @@ class ViewController: UIViewController {
         else {
             return
         }
-        
+        // Perform the phone number validation
+                let numericString = String(phoneNumberStr.filter { $0.isNumber })
+                if numericString.count != 10 {
+                    showAlert(message: "Phone number should have exactly 10 digits.")
+                    return
+                }
         
         let contact = Contact(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber)
             contactList.contacts.insert(contact, at: 0)
@@ -44,5 +49,13 @@ class ViewController: UIViewController {
                 }
             navigationController?.popViewController(animated: true)
     }
+    // Function to show an alert with a given message
+       private func showAlert(message: String) {
+           let alertController = UIAlertController(title: "Invalid Phone Number", message: message, preferredStyle: .alert)
+           let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+           alertController.addAction(okAction)
+           present(alertController, animated: true, completion: nil)
+       }
+
     
 }

@@ -50,14 +50,21 @@ class ContactsTableViewController: UITableViewController {
         let firstName = contact.firstName
         let lastName = contact.lastName
         let phoneNumber = contact.phoneNumber
-        let contactDetails = "\(firstName) \(lastName)\n\(phoneNumber)"
+        let formattedPhoneNumber = formatPhoneNumber(phoneNumber: phoneNumber)
+        let contactDetails = "\(firstName) \(lastName)\n\(formattedPhoneNumber)"
         cell.textLabel?.text = contactDetails
         cell.textLabel?.numberOfLines = 0
         print("Cell content at row \(row): \(contactDetails)")
         return cell
-        
     }
-    
+    // Function to format the phone number as (123) 456-7890
+     private func formatPhoneNumber(phoneNumber: Int) -> String {
+        let phoneNumberString = String(phoneNumber)
+        let areaCode = phoneNumberString.prefix(3)
+        let firstThreeDigits = phoneNumberString.dropFirst(3).prefix(3)
+        let lastFourDigits = phoneNumberString.dropFirst(6).prefix(4)
+        return "(\(areaCode)) \(firstThreeDigits)-\(lastFourDigits)"
+        }
 
     /*
     // Override to support conditional editing of the table view.
