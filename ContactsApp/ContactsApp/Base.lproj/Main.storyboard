@@ -232,7 +232,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="325" id="qKq-KI-XYQ"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="324" id="zfj-HH-AYA"/>
                                 </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                             </textField>
@@ -259,6 +259,9 @@
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="submitButton:" destination="5R3-zN-zeF" eventType="touchUpInside" id="hx5-x1-8Ch"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Contact" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NX7-0S-dd6">
                                 <rect key="frame" x="112" y="103" width="200" height="34.666666666666657"/>
@@ -298,6 +301,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7HA-iP-wnl" colorLabel="IBBuiltInLabel-Green"/>
+                    <connections>
+                        <outlet property="firstName" destination="VpU-BP-Rl1" id="0WL-7x-nPD"/>
+                        <outlet property="lastName" destination="MCs-9i-4gd" id="nxk-mR-1M6"/>
+                        <outlet property="phoneNumber" destination="fHf-f8-wAz" id="z9K-38-zXv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmE-iS-13W" sceneMemberID="firstResponder"/>
             </objects>
@@ -306,7 +314,7 @@
         <!--Contacts-->
         <scene sceneID="FWr-wW-UFu">
             <objects>
-                <tableViewController id="z4t-pp-a1h" sceneMemberID="viewController">
+                <tableViewController id="z4t-pp-a1h" customClass="ContactsTableViewController" customModule="ContactsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="niP-TE-sSV">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -319,6 +327,17 @@
                                 <outlet property="delegate" destination="z4t-pp-a1h" id="tIS-qX-rp1"/>
                             </connections>
                         </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contactList" id="PKe-XY-Ye0">
+                                <rect key="frame" x="0.0" y="94" width="430" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PKe-XY-Ye0" id="FZY-7K-V8p">
+                                    <rect key="frame" x="0.0" y="0.0" width="430" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="z4t-pp-a1h" id="2wn-ac-lX5"/>
                             <outlet property="delegate" destination="z4t-pp-a1h" id="uq6-p4-780"/>
@@ -329,7 +348,7 @@
                             <barButtonItem title="Item" image="person.crop.circle.badge.plus" catalog="system" id="Z02-9N-2j2">
                                 <color key="tintColor" systemColor="systemGreenColor"/>
                                 <connections>
-                                    <segue destination="5R3-zN-zeF" kind="show" id="ALB-Rd-LfW"/>
+                                    <segue destination="5R3-zN-zeF" kind="show" identifier="CreateContact" id="ALB-Rd-LfW"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="pencil.circle" catalog="system" id="dNH-d7-ddq">
