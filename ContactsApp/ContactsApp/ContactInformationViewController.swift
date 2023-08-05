@@ -9,6 +9,9 @@ import UIKit
 
 class ContactInformationViewController: UIViewController {
     var contact: Contact?
+    var indexPath: IndexPath?
+    var tableView: UITableView!
+    var contactList: ContactList!
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var phoneNumber: UILabel!
     override func viewDidLoad() {
