@@ -75,9 +75,30 @@ class ContactsTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            contactList.deleteContact(indexPath: indexPath)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let contact = contactList.contacts[indexPath.row]
+            let firstName = contact.firstName
+            let lastName = contact.lastName
+
+            // Show a confirmation dialog box
+                    let alertController = UIAlertController(
+                        title: "Delete Contact",
+                        message: "Are you sure you want to delete \(firstName) \(lastName)?",
+                        preferredStyle: .alert
+                    )
+
+                    let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { _ in
+                        // Delete the row from the data source
+                        self.contactList.deleteContact(indexPath: indexPath)
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+                    }
+
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+                    alertController.addAction(confirmAction)
+                    alertController.addAction(cancelAction)
+
+                    present(alertController, animated: true, completion: nil)
+
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
