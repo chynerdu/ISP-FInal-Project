@@ -35,8 +35,6 @@ class ContactsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("Number of rows: \(contactList.contacts.count)")
-
         return contactList.contacts.count
 
     }
@@ -54,7 +52,6 @@ class ContactsTableViewController: UITableViewController {
         let contactDetails = "\(firstName) \(lastName)\n\(formattedPhoneNumber)"
         cell.textLabel?.text = contactDetails
         cell.textLabel?.numberOfLines = 0
-        print("Cell content at row \(row): \(contactDetails)")
         return cell
     }
     // Function to format the phone number as (123) 456-7890
@@ -101,8 +98,15 @@ class ContactsTableViewController: UITableViewController {
         return true
     }
     */
-
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let contact = contactList.contacts[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let contactDetailsVC = storyboard.instantiateViewController(withIdentifier: "ContactInformationViewController") as! ContactInformationViewController
+        contactDetailsVC.contact = contact
+        navigationController?.pushViewController(contactDetailsVC, animated: true)
+    }
+
     // MARK: - Navigation
     /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation

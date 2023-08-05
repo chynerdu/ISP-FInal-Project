@@ -118,10 +118,10 @@
             </objects>
             <point key="canvasLocation" x="1125" y="-77"/>
         </scene>
-        <!--View Controller-->
+        <!--Contact Information View Controller-->
         <scene sceneID="ToZ-b3-pgs">
             <objects>
-                <viewController id="GvN-dz-Gd7" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactInformationViewController" id="GvN-dz-Gd7" customClass="ContactInformationViewController" customModule="ContactsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MNt-af-sLi">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -190,6 +190,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0Qs-wf-0RM"/>
+                    <connections>
+                        <outlet property="fullName" destination="viQ-6x-cFK" id="mVn-Dz-73E"/>
+                        <outlet property="phoneNumber" destination="at2-ph-CTO" id="05z-GQ-FVV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4dP-T6-WFb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -351,6 +355,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="tintColor" systemColor="systemGreenColor"/>
+                                <connections>
+                                    <segue destination="GvN-dz-Gd7" kind="show" identifier="ContactInformationViewController" id="fin-fm-xHl"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -375,9 +382,6 @@
                             </barButtonItem>
                             <barButtonItem title="Item" image="info.circle" catalog="system" id="y8y-yb-cZt">
                                 <color key="tintColor" systemColor="systemGreenColor"/>
-                                <connections>
-                                    <segue destination="GvN-dz-Gd7" kind="show" id="SuZ-y2-K67"/>
-                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -404,7 +408,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kL7-2a-MJH"/>
+        <segue reference="QSg-8I-bpb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="info.circle" catalog="system" width="128" height="123"/>

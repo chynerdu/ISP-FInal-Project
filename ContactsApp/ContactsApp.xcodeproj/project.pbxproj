@@ -19,6 +19,7 @@
 		9559C5A22A7D80D900A4AB05 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559C5A12A7D80D900A4AB05 /* Contact.swift */; };
 		9559C5A42A7D822400A4AB05 /* ContactsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559C5A32A7D822400A4AB05 /* ContactsList.swift */; };
 		9559C5A62A7D8BF100A4AB05 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559C5A52A7D8BF100A4AB05 /* ContactsTableViewController.swift */; };
+		9559C5A82A7DCE6400A4AB05 /* ContactInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559C5A72A7DCE6400A4AB05 /* ContactInformationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		9559C5A12A7D80D900A4AB05 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		9559C5A32A7D822400A4AB05 /* ContactsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsList.swift; sourceTree = "<group>"; };
 		9559C5A52A7D8BF100A4AB05 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
+		9559C5A72A7DCE6400A4AB05 /* ContactInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInformationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				953E7EC02A621BEC0085ACA0 /* ViewController.swift */,
 				9559C5A12A7D80D900A4AB05 /* Contact.swift */,
 				9559C5A52A7D8BF100A4AB05 /* ContactsTableViewController.swift */,
+				9559C5A72A7DCE6400A4AB05 /* ContactInformationViewController.swift */,
 				9559C5A32A7D822400A4AB05 /* ContactsList.swift */,
 				953E7EC22A621BEC0085ACA0 /* Main.storyboard */,
 				953E7EC52A621BED0085ACA0 /* Assets.xcassets */,
@@ -273,6 +276,7 @@
 				953E7EC12A621BEC0085ACA0 /* ViewController.swift in Sources */,
 				953E7EBD2A621BEC0085ACA0 /* AppDelegate.swift in Sources */,
 				953E7EBF2A621BEC0085ACA0 /* SceneDelegate.swift in Sources */,
+				9559C5A82A7DCE6400A4AB05 /* ContactInformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
