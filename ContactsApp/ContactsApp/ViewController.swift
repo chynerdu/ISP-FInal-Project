@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var phoneNumber: UITextField!
     
     override func viewDidLoad() {
+        navigationController?.navigationBar.tintColor = UIColor.systemGreen
         super.viewDidLoad()
         contactList = ContactList()
         tableView = UITableView()

@@ -16,7 +16,7 @@ class ContactInformationViewController: UIViewController {
     @IBOutlet weak var phoneNumber: UILabel!
     override func viewDidLoad() {
            super.viewDidLoad()
-
+            navigationController?.navigationBar.tintColor = UIColor.systemGreen
            if let contact = contact {
                fullName.text = "\(contact.firstName) \(contact.lastName)"
                phoneNumber.text = formatPhoneNumber(phoneNumber: contact.phoneNumber)
@@ -30,6 +30,36 @@ class ContactInformationViewController: UIViewController {
                 return "(\(areaCode)) \(firstThreeDigits)-\(lastFourDigits)"
             }
 
+    @IBAction func deleteContact(_ sender: UIButton) {
+        guard let contact = contact, let indexPath = indexPath else {
+            // Invalid data, handle the error or return if needed.
+            return
+        }
+
+        // Show a confirmation dialog box
+        let alertController = UIAlertController(
+            title: "Delete Contact",
+            message: "Are you sure you want to delete \(contact.firstName) \(contact.lastName)?",
+            preferredStyle: .alert
+        )
+
+        let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { _ in
+            // Remove the contact from the table view
+            self.contactList.contacts.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.contactList.saveContacts()
+            self.navigationController?.popViewController(animated: true)
+
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
+    
     
 
     /*

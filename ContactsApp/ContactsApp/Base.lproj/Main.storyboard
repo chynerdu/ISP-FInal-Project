@@ -169,6 +169,9 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
                                     <color key="baseForegroundColor" systemColor="systemPinkColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="deleteContact:" destination="GvN-dz-Gd7" eventType="touchUpInside" id="nO0-Ha-eh3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OZB-RY-iUn"/>
