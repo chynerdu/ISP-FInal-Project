@@ -21,6 +21,8 @@ class ContactInformationViewController: UIViewController {
                fullName.text = "\(contact.firstName) \(contact.lastName)"
                phoneNumber.text = formatPhoneNumber(phoneNumber: contact.phoneNumber)
            }
+        NotificationCenter.default.addObserver(self, selector: #selector(contactUpdated(_:)), name: Notification.Name("ContactUpdated"), object: nil)
+
        }
         func formatPhoneNumber(phoneNumber: Int) -> String {
                 let phoneNumberString = String(phoneNumber)
@@ -60,7 +62,14 @@ class ContactInformationViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    
+    @objc func contactUpdated(_ notification: Notification) {
+            if let updatedContact = notification.object as? Contact, updatedContact === contact {
+                // Update the view with the updated contact's information
+                fullName.text = "\(updatedContact.firstName) \(updatedContact.lastName)"
+                phoneNumber.text = formatPhoneNumber(phoneNumber: updatedContact.phoneNumber)
+            }
+        }
+
 
     /*
     // MARK: - Navigation

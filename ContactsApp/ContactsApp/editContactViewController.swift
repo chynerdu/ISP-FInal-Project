@@ -37,6 +37,8 @@ class editContactViewController: UIViewController {
             contactToUpdate.lastName = lastName
             contactToUpdate.phoneNumber = Int(phoneNumberStr) ?? 0
             delegate?.didUpdateContact(contactToUpdate)
+            NotificationCenter.default.post(name: Notification.Name("ContactUpdated"), object: contactToUpdate)
+
             navigationController?.popViewController(animated: true)
         }
     }
