@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ContactsTableViewController: UITableViewController {
+class ContactsTableViewController: UITableViewController, EditContactDelegate {
     var contactList:ContactList!
 
     override func viewDidLoad() {
@@ -24,6 +24,10 @@ class ContactsTableViewController: UITableViewController {
         tableView.dataSource = self
         // Sort the contacts array based on first name in alphabetical order
         contactList.contacts.sort { $0.firstName.localizedCaseInsensitiveCompare($1.firstName) == .orderedAscending }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -101,9 +105,17 @@ class ContactsTableViewController: UITableViewController {
 
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+        
     }
-    
+    func didUpdateContact(_ contact: Contact) {
+            if let index = contactList.contacts.firstIndex(where: { $0 === contact }) {
+                // Update the contact in the array and reload the corresponding row
+                contactList.contacts[index] = contact
+                tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+            }
+        }
+
 
     /*
     // Override to support rearranging the table view.
@@ -143,6 +155,13 @@ class ContactsTableViewController: UITableViewController {
                          let row = indexPath.row
                          dst.contact = contactList.contacts[row]
                          dst.indexPath = indexPath
+                     }
+                 } else if let dst = segue.destination as? editContactViewController, segue.identifier == "editContact" {
+                     if let indexPath = tableView.indexPathForSelectedRow {
+                         let row = indexPath.row
+                         dst.contact = contactList.contacts[row]
+                         dst.contactList = contactList
+                         dst.delegate = self 
                      }
                  }
              }

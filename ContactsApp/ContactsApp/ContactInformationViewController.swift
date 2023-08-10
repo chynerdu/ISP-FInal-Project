@@ -71,5 +71,11 @@ class ContactInformationViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+               if let dst = segue.destination as? editContactViewController {
+                   if let indexPath = tableView.indexPathForSelectedRow {
+                       dst.contact = contactList.contacts[indexPath.row]
+                   }
+               }
+           }
 }

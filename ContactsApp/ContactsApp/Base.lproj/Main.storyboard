@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Edit Contact View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ContactsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="editContactViewController" customModule="ContactsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,7 +47,7 @@
                                     <constraint firstAttribute="height" constant="50" id="PRX-Ii-UOP"/>
                                     <constraint firstAttribute="width" secondItem="Oiz-cK-bMM" secondAttribute="height" multiplier="54:7" constant="4.2857142857142776" id="gei-5G-jVY"/>
                                 </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                             </textField>
@@ -74,6 +74,9 @@
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="saveButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h0I-Wp-Q2f"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Contact" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hw-jF-dmi">
                                 <rect key="frame" x="131" y="106.33333333333333" width="162.66666666666663" height="34.666666666666671"/>
@@ -113,6 +116,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yb5-6O-o6E"/>
+                    <connections>
+                        <outlet property="firstName" destination="Oiz-cK-bMM" id="flm-FG-GTN"/>
+                        <outlet property="lastName" destination="Zqu-gs-ox5" id="cTp-wt-zai"/>
+                        <outlet property="phoneNumber" destination="4Mm-4z-due" id="Auq-0T-MU4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -159,7 +167,7 @@
                                     <color key="baseForegroundColor" systemColor="systemGreenColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="QSg-8I-bpb"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="editContact" id="qwc-0D-muj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbQ-Hu-LMl">
@@ -310,7 +318,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7HA-iP-wnl" colorLabel="IBBuiltInLabel-Green"/>
                     <connections>
-                        <outlet property="firstName" destination="VpU-BP-Rl1" id="0WL-7x-nPD"/>
+                        <outlet property="firstName" destination="VpU-BP-Rl1" id="aJt-Mv-CR4"/>
                         <outlet property="lastName" destination="MCs-9i-4gd" id="nxk-mR-1M6"/>
                         <outlet property="phoneNumber" destination="fHf-f8-wAz" id="z9K-38-zXv"/>
                     </connections>
@@ -379,9 +387,6 @@
                             </barButtonItem>
                             <barButtonItem title="Item" image="pencil.circle" catalog="system" id="dNH-d7-ddq">
                                 <color key="tintColor" systemColor="systemGreenColor"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="kL7-2a-MJH"/>
-                                </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="info.circle" catalog="system" id="y8y-yb-cZt">
                                 <color key="tintColor" systemColor="systemGreenColor"/>
@@ -410,9 +415,6 @@
             <point key="canvasLocation" x="-1215" y="-77"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="QSg-8I-bpb"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="pencil.circle" catalog="system" width="128" height="123"/>
