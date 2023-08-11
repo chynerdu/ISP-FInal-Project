@@ -12,7 +12,7 @@ protocol EditContactDelegate: AnyObject {
 
 class editContactViewController: UIViewController {
     var contact: Contact?
-    var contactList: ContactList?
+    var contactList = ContactList()
     weak var delegate: EditContactDelegate?
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
@@ -26,18 +26,13 @@ class editContactViewController: UIViewController {
         else {
             return
         }
-        let numericString = String(phoneNumberStr.filter { $0.isNumber })
-        if numericString.count != 10 {
-            showAlert(message: "Phone number should have exactly 10 digits.")
-            return
-        }
-        // Update the contact's information
-        if let contactToUpdate = contact {
+        
+        if let contactToUpdate = contactList.contacts.first {
             contactToUpdate.firstName = firstName
             contactToUpdate.lastName = lastName
             contactToUpdate.phoneNumber = Int(phoneNumberStr) ?? 0
-            delegate?.didUpdateContact(contactToUpdate)
-            NotificationCenter.default.post(name: Notification.Name("ContactUpdated"), object: contactToUpdate)
+            
+            contactList.saveContacts()
             
             navigationController?.popViewController(animated: true)
         }
@@ -46,7 +41,9 @@ class editContactViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let contact = contact {
+        contactList.fetch()
+        
+        if let contact = contactList.contacts.first {
             firstName.text = contact.firstName
             lastName.text = contact.lastName
             phoneNumber.text = "\(contact.phoneNumber)"

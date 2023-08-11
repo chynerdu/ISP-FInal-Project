@@ -14,37 +14,38 @@ class ContactList {
         let documentDirectory = documentDirectories.first!
         return documentDirectory.appendingPathComponent("contact.archive")
     }()
-
+    
     init() {
         fetch()
     }
-
+    
     func fetch() {
         do {
             let archivedData = try Data(contentsOf: taskURL)
-            contacts = try NSKeyedUnarchiver.unarchivedArrayOfObjects(ofClass: Contact.self, from: archivedData) ?? [Contact]()
+            if let unarchivedContacts = try NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSArray.self, Contact.self], from: archivedData) as? [Contact] {
+                contacts = unarchivedContacts
+            }
         } catch {
-            print("Error: \(error)")
+            print("Error fetching contacts: \(error)")
         }
     }
-
     func addContact(firstName: String, lastName: String, phoneNumber: Int) {
         let newContact = Contact(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber)
         contacts.append(newContact)
         saveContacts()
     }
     func deleteContact(indexPath: IndexPath){
-                let index = indexPath.row
-                contacts.remove(at: index)
-                saveContacts()
-            }
-
+        let index = indexPath.row
+        contacts.remove(at: index)
+        saveContacts()
+    }
+    
     func saveContacts() {
         do {
             let archivedData = try NSKeyedArchiver.archivedData(withRootObject: contacts, requiringSecureCoding: false)
             try archivedData.write(to: taskURL)
         } catch {
-            print("Error: \(error)")
+            print("Error saving contacts: \(error)")
         }
     }
 }
