@@ -24,11 +24,13 @@ class editContactViewController: UIViewController {
             let lastName = lastName.text, !lastName.isEmpty,
             let phoneNumberStr = phoneNumber.text, let _ = Int(phoneNumberStr)
         else {
+            showAlert(title: "Missing Information", message: "All input fields are required.")
+            
             return
         }
         let numericString = String(phoneNumberStr.filter { $0.isNumber })
         if numericString.count != 10 {
-            showAlert(message: "Phone number should have exactly 10 digits.")
+            showAlert(title: "Invalid Phone Number", message: "Phone number should have exactly 10 digits.")
             return
         }
         // Update the contact's information
@@ -53,8 +55,8 @@ class editContactViewController: UIViewController {
         }
         
     }
-    private func showAlert(message: String) {
-        let alertController = UIAlertController(title: "Invalid Phone Number", message: message, preferredStyle: .alert)
+    private func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
