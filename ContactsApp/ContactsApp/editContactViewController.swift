@@ -38,19 +38,19 @@ class editContactViewController: UIViewController {
             contactToUpdate.phoneNumber = Int(phoneNumberStr) ?? 0
             delegate?.didUpdateContact(contactToUpdate)
             NotificationCenter.default.post(name: Notification.Name("ContactUpdated"), object: contactToUpdate)
-
+            
             navigationController?.popViewController(animated: true)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if let contact = contact {
-                    firstName.text = contact.firstName
-                    lastName.text = contact.lastName
-                    phoneNumber.text = "\(contact.phoneNumber)"
-                }
+            firstName.text = contact.firstName
+            lastName.text = contact.lastName
+            phoneNumber.text = "\(contact.phoneNumber)"
+        }
         
     }
     private func showAlert(message: String) {
@@ -59,17 +59,17 @@ class editContactViewController: UIViewController {
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
-   
-
-
+    
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
