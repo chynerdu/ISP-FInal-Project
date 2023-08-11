@@ -8,8 +8,13 @@
 import UIKit
 
 class ContactsTableViewController: UITableViewController, EditContactDelegate {
-    var contactList: ContactList!
-        var originalContacts: [Contact] = []
+    var contactList: ContactList! {
+        didSet {
+            originalContacts = contactList.contacts // Update originalContacts when contactList is updated
+        }
+    }
+    var originalContacts: [Contact] = [] // Store original contacts here
+    var noResultsLabel: UILabel!
     
     @IBOutlet weak var search: UISearchBar!
     override func viewDidLoad() {
@@ -28,27 +33,45 @@ class ContactsTableViewController: UITableViewController, EditContactDelegate {
         tableView.dataSource = self
         // Sort the contacts array based on first name in alphabetical order
         contactList.contacts.sort { $0.firstName.localizedCaseInsensitiveCompare($1.firstName) == .orderedAscending }
+        // Initialize the noResultsLabel
+        noResultsLabel = UILabel()
+        noResultsLabel.text = "No matching contacts found."
+        noResultsLabel.textAlignment = .center
+        noResultsLabel.textColor = .gray
+        noResultsLabel.translatesAutoresizingMaskIntoConstraints = false
+        tableView.addSubview(noResultsLabel)
+        
+        // Set label constraints
+        noResultsLabel.centerXAnchor.constraint(equalTo: tableView.centerXAnchor).isActive = true
+        noResultsLabel.centerYAnchor.constraint(equalTo: tableView.centerYAnchor).isActive = true
+        noResultsLabel.isHidden = true // Hide the label initially
+        
     }
+    //Search bar functionality
     @objc func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-           if searchText.isEmpty {
-               // If the search text is empty, show all contacts
-               contactList.contacts = originalContacts
-           }  else {
-               // Split the search text into individual words
-               let searchWords = searchText.split(separator: " ")
-               
-               // Filter contacts based on search text
-               contactList.contacts = originalContacts.filter { contact in
-                   // Check if any search word is contained in the first name or last name
-                   return searchWords.allSatisfy { searchWord in
-                       return contact.firstName.localizedCaseInsensitiveContains(searchWord) ||
-                           contact.lastName.localizedCaseInsensitiveContains(searchWord)
-                   }
-               }
-           }
-           
-           tableView.reloadData()
-       }
+        if searchText.isEmpty {
+            // If the search text is empty, show all contacts
+            contactList.contacts = originalContacts
+        }  else {
+            // Split the search text into individual words
+            let searchWords = searchText.split(separator: " ")
+            
+            // Filter contacts based on search text
+            contactList.contacts = originalContacts.filter { contact in
+                // Check if any search word is contained in the first name or last name
+                return searchWords.allSatisfy { searchWord in
+                    return contact.firstName.localizedCaseInsensitiveContains(searchWord) ||
+                    contact.lastName.localizedCaseInsensitiveContains(searchWord)
+                }
+            }
+        }
+        
+        tableView.reloadData()
+        updateNoResultsLabel()
+    }
+    private func updateNoResultsLabel() {
+        noResultsLabel.isHidden = !contactList.contacts.isEmpty
+    }
     @objc func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.resignFirstResponder()
@@ -56,13 +79,14 @@ class ContactsTableViewController: UITableViewController, EditContactDelegate {
         contactList.contacts = originalContacts
         tableView.reloadData()
     }
-
-
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         contactList.contacts.sort { $0.firstName.localizedCaseInsensitiveCompare($1.firstName) == .orderedAscending }
         
         tableView.reloadData()
+        updateNoResultsLabel()
     }
     
     // MARK: - Table view data source
@@ -128,6 +152,7 @@ class ContactsTableViewController: UITableViewController, EditContactDelegate {
             let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { _ in
                 // Delete the row from the data source
                 self.contactList.deleteContact(indexPath: indexPath)
+                self.originalContacts = self.contactList.contacts
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
             
