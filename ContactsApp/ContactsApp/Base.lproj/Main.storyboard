@@ -378,20 +378,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Contacts" id="m9Y-mB-twM">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Item" image="person.crop.circle.badge.plus" catalog="system" id="Z02-9N-2j2">
-                                <color key="tintColor" systemColor="systemGreenColor"/>
-                                <connections>
-                                    <segue destination="5R3-zN-zeF" kind="show" identifier="CreateContact" id="ALB-Rd-LfW"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Item" image="pencil.circle" catalog="system" id="dNH-d7-ddq">
-                                <color key="tintColor" systemColor="systemGreenColor"/>
-                            </barButtonItem>
-                            <barButtonItem title="Item" image="info.circle" catalog="system" id="y8y-yb-cZt">
-                                <color key="tintColor" systemColor="systemGreenColor"/>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="person.crop.circle.badge.plus" catalog="system" id="Z02-9N-2j2">
+                            <color key="tintColor" systemColor="systemGreenColor"/>
+                            <connections>
+                                <segue destination="5R3-zN-zeF" kind="show" identifier="CreateContact" id="ALB-Rd-LfW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3S2-z9-yDM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -416,8 +408,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="info.circle" catalog="system" width="128" height="123"/>
-        <image name="pencil.circle" catalog="system" width="128" height="123"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle.badge.plus" catalog="system" width="128" height="114"/>
