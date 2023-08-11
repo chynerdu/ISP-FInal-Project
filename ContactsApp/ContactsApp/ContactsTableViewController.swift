@@ -8,10 +8,13 @@
 import UIKit
 
 class ContactsTableViewController: UITableViewController, EditContactDelegate {
-    var contactList:ContactList!
+    var contactList: ContactList!
+        var originalContacts: [Contact] = []
     
+    @IBOutlet weak var search: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController?.navigationBar.tintColor = UIColor.systemGreen
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -20,11 +23,41 @@ class ContactsTableViewController: UITableViewController, EditContactDelegate {
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         contactList = ContactList()
         contactList.fetch()
+        originalContacts = contactList.contacts
         tableView.delegate = self
         tableView.dataSource = self
         // Sort the contacts array based on first name in alphabetical order
         contactList.contacts.sort { $0.firstName.localizedCaseInsensitiveCompare($1.firstName) == .orderedAscending }
     }
+    @objc func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+           if searchText.isEmpty {
+               // If the search text is empty, show all contacts
+               contactList.contacts = originalContacts
+           }  else {
+               // Split the search text into individual words
+               let searchWords = searchText.split(separator: " ")
+               
+               // Filter contacts based on search text
+               contactList.contacts = originalContacts.filter { contact in
+                   // Check if any search word is contained in the first name or last name
+                   return searchWords.allSatisfy { searchWord in
+                       return contact.firstName.localizedCaseInsensitiveContains(searchWord) ||
+                           contact.lastName.localizedCaseInsensitiveContains(searchWord)
+                   }
+               }
+           }
+           
+           tableView.reloadData()
+       }
+    @objc func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        // Reset contacts to the original list
+        contactList.contacts = originalContacts
+        tableView.reloadData()
+    }
+
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         contactList.contacts.sort { $0.firstName.localizedCaseInsensitiveCompare($1.firstName) == .orderedAscending }
