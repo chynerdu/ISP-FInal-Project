@@ -41,7 +41,7 @@ class editContactViewController: UIViewController {
             delegate?.didUpdateContact(contactToUpdate)
             NotificationCenter.default.post(name: Notification.Name("ContactUpdated"), object: contactToUpdate)
             
-            navigationController?.popViewController(animated: true)
+            showAlertWithDelayedNavigation(title: "Success", message: "Contact updated successfully.")
         }
     }
     
@@ -61,7 +61,17 @@ class editContactViewController: UIViewController {
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
-    
+    private func showAlertWithDelayedNavigation(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        present(alertController, animated: true, completion: nil)
+        
+        // Dismiss the alert after 2 seconds and navigate back
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            alertController.dismiss(animated: true) {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
     
     
     /*

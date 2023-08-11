@@ -49,7 +49,8 @@ class ViewController: UIViewController {
             contactsTableViewController.contactList = contactList
             contactsTableViewController.tableView.reloadData()
         }
-        navigationController?.popViewController(animated: true)
+        showAlertWithDelayedNavigation(title: "Success", message: "Contact saved successfully.")
+        
     }
     // Function to show an alert with a given message
     private func showAlert(title: String, message: String) {
@@ -58,6 +59,15 @@ class ViewController: UIViewController {
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
-    
-    
+    private func showAlertWithDelayedNavigation(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        present(alertController, animated: true, completion: nil)
+        
+        // Dismiss the alert after 2 seconds and navigate back
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            alertController.dismiss(animated: true) {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
 }
