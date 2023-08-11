@@ -47,7 +47,6 @@
                                     <constraint firstAttribute="height" constant="50" id="PRX-Ii-UOP"/>
                                     <constraint firstAttribute="width" secondItem="Oiz-cK-bMM" secondAttribute="height" multiplier="54:7" constant="4.2857142857142776" id="gei-5G-jVY"/>
                                 </constraints>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                             </textField>
@@ -248,7 +247,6 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="325" id="qKq-KI-XYQ"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="324" id="zfj-HH-AYA"/>
                                 </constraints>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                             </textField>
