@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  ContactsApp
+
+  Created by Sreenath Segar on 2023-08-11.
+  
+*/
+"Missing Information" = "Information manquante";
+"All input fields are required." = "Tous les champs doivent être remplis.";
+"Invalid Phone Number" = "Numéro de téléphone invalide";
+"Phone number should have exactly 10 digits." = "Le numéro de téléphone doit contenir exactement 10 chiffres.";
+"Success" = "Succès";
+"Contact saved successfully." = "Contact enregistré avec succès.";
+"OK" = "OK";
+"ContactUpdated" = "Contact mis à jour";
+"Contact updated successfully." = "Contact mis à jour avec succès.";
+"No matching contacts found." = "Aucun contact correspondant trouvé.";
+"Delete Contact" = "Supprimer le contact";
+"Are you sure you want to delete" = "Êtes-vous sûr de vouloir supprimer";
+"Confirm" = "Confirmer";
+"Cancel" = "Annuler";

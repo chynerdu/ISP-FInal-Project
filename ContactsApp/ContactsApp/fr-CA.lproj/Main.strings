@@ -1,0 +1,89 @@
+/* Classe = "UILabel"; texte = "Nom de famille"; ObjectID = "2rT-Eh-SKy"; */
+"2rT-Eh-SKy.text" = "Nom de famille";
+
+/* Classe = "UITextField"; placeholder = "Numéro de téléphone"; ObjectID = "4Mm-4z-due"; */
+"4Mm-4z-due.placeholder" = "Numéro de téléphone";
+
+/* Classe = "UILabel"; texte = "Modifier le contact"; ObjectID = "5hw-jF-dmi"; */
+"5hw-jF-dmi.text" = "Modifier le contact";
+
+/* Classe = "UILabel"; texte = "Numéro de téléphone"; ObjectID = "6SP-MZ-cXh"; */
+"6SP-MZ-cXh.text" = "Numéro de téléphone";
+
+/* Classe = "UILabel"; texte = "Nom de famille"; ObjectID = "9sr-er-hdk"; */
+"9sr-er-hdk.text" = "Nom de famille";
+
+/* Classe = "UISearchBar"; placeholder = "Rechercher des contacts..."; ObjectID = "EEe-k5-Efc"; */
+"EEe-k5-Efc.placeholder" = "Rechercher des contacts...";
+
+/* Classe = "UINavigationController"; title = "Contacts"; ObjectID = "Hcc-Uv-ImB"; */
+"Hcc-Uv-ImB.title" = "Contacts";
+
+/* Classe = "UITextField"; placeholder = "Nom de famille"; ObjectID = "MCs-9i-4gd"; */
+"MCs-9i-4gd.placeholder" = "Nom de famille";
+
+/* Classe = "UILabel"; texte = "Créer un contact"; ObjectID = "NX7-0S-dd6"; */
+"NX7-0S-dd6.text" = "Créer un contact";
+
+/* Classe = "UITextField"; placeholder = "Prénom"; ObjectID = "Oiz-cK-bMM"; */
+"Oiz-cK-bMM.placeholder" = "Prénom";
+
+/* Classe = "UILabel"; texte = "Prénom"; ObjectID = "Pko-jw-p0m"; */
+"Pko-jw-p0m.text" = "Prénom";
+
+/* Classe = "UIButton"; configuration.title = "Soumettre"; ObjectID = "TcU-yg-Yjm"; */
+"TcU-yg-Yjm.configuration.title" = "Soumettre";
+
+/* Classe = "UIButton"; normalTitle = "Bouton"; ObjectID = "TcU-yg-Yjm"; */
+"TcU-yg-Yjm.normalTitle" = "Bouton";
+
+/* Classe = "UITextField"; placeholder = "Prénom"; ObjectID = "VpU-BP-Rl1"; */
+"VpU-BP-Rl1.placeholder" = "Prénom";
+
+/* Classe = "UIButton"; configuration.title = "Enregistrer"; ObjectID = "XKv-NX-m0G"; */
+"XKv-NX-m0G.configuration.title" = "Enregistrer";
+
+/* Classe = "UIButton"; normalTitle = "Bouton"; ObjectID = "XKv-NX-m0G"; */
+"XKv-NX-m0G.normalTitle" = "Bouton";
+
+/* Classe = "UIBarButtonItem"; title = "Élément"; ObjectID = "Z02-9N-2j2"; */
+"Z02-9N-2j2.title" = "Élément";
+
+/* Classe = "UITextField"; placeholder = "Nom de famille"; ObjectID = "Zqu-gs-ox5"; */
+"Zqu-gs-ox5.placeholder" = "Nom de famille";
+
+/* Classe = "UILabel"; texte = "Coordonnées"; ObjectID = "a8k-Ta-fPQ"; */
+"a8k-Ta-fPQ.text" = "Coordonnées";
+
+/* Classe = "UILabel"; texte = "(123) 456 - 7890"; ObjectID = "at2-ph-CTO"; */
+"at2-ph-CTO.text" = "(123) 456 - 7890";
+
+/* Classe = "UIButton"; configuration.title = " Modifier le contact"; ObjectID = "b7O-My-cME"; */
+"b7O-My-cME.configuration.title" = " Modifier le contact";
+
+/* Classe = "UIButton"; normalTitle = "Bouton"; ObjectID = "b7O-My-cME"; */
+"b7O-My-cME.normalTitle" = "Bouton";
+
+/* Classe = "UILabel"; texte = "Prénom"; ObjectID = "czw-1g-xoP"; */
+"czw-1g-xoP.text" = "Prénom";
+
+/* Classe = "UITextField"; placeholder = "Numéro de téléphone"; ObjectID = "fHf-f8-wAz"; */
+"fHf-f8-wAz.placeholder" = "Numéro de téléphone";
+
+/* Classe = "UIButton"; configuration.title = "Supprimer"; ObjectID = "gbQ-Hu-LMl"; */
+"gbQ-Hu-LMl.configuration.title" = "Supprimer";
+
+/* Classe = "UIButton"; normalTitle = "Bouton"; ObjectID = "gbQ-Hu-LMl"; */
+"gbQ-Hu-LMl.normalTitle" = "Bouton";
+
+/* Classe = "UILabel"; texte = "Numéro de téléphone"; ObjectID = "gpq-Cp-MWF"; */
+"gpq-Cp-MWF.text" = "Numéro de téléphone";
+
+/* Classe = "UINavigationItem"; title = "Contacts"; ObjectID = "m9Y-mB-twM"; */
+"m9Y-mB-twM.title" = "Contacts";
+
+/* Classe = "UILabel"; texte = "Titre"; ObjectID = "ng6-l0-0Ba"; */
+"ng6-l0-0Ba.text" = "Titre";
+
+/* Classe = "UILabel"; texte = "Nom"; ObjectID = "viQ-6x-cFK"; */
+"viQ-6x-cFK.text" = "Nom";
