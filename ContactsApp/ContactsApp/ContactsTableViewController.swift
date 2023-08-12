@@ -69,6 +69,16 @@ class ContactsTableViewController: UITableViewController, EditContactDelegate {
         tableView.reloadData()
         updateNoResultsLabel()
     }
+    //adding color to alternative cells
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row % 2 == 0 {
+            // Even row index, set light green background color
+            cell.backgroundColor = UIColor.white
+        } else {
+            // Odd row index, set default background color
+            cell.backgroundColor = UIColor.systemGray.withAlphaComponent(0.1)
+        }
+    }
     //method to show no sesult is found when searching
     private func updateNoResultsLabel() {
         noResultsLabel.isHidden = !contactList.contacts.isEmpty

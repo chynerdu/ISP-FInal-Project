@@ -8,6 +8,8 @@
 import UIKit
 
 class ContactInformationViewController: UIViewController {
+    var isBlinking = false
+    var originalTextColor: UIColor!
     var contact: Contact?
     var indexPath: IndexPath?
     var tableView: UITableView!
@@ -20,10 +22,29 @@ class ContactInformationViewController: UIViewController {
         if let contact = contact {
             fullName.text = "\(contact.firstName) \(contact.lastName)"
             phoneNumber.text = formatPhoneNumber(phoneNumber: contact.phoneNumber)
+            startBlinkingAnimation()
+            phoneNumber.textColor = getRandomColor()
         }
         NotificationCenter.default.addObserver(self, selector: #selector(contactUpdated(_:)), name: Notification.Name("ContactUpdated"), object: nil)
         
     }
+    //phone number will be blinking
+    func startBlinkingAnimation() {
+        if !isBlinking {
+            isBlinking = true
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.repeat, .autoreverse], animations: {
+                self.phoneNumber.alpha = 0.0
+            }, completion: nil)
+        }
+    }
+    //phone text colour will be changing dynamically every time page loads
+    func getRandomColor() -> UIColor {
+        let randomRed = CGFloat.random(in: 0...1)
+        let randomGreen = CGFloat.random(in: 0...1)
+        let randomBlue = CGFloat.random(in: 0...1)
+        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
+    }
+    
     //format the number in phone number format
     func formatPhoneNumber(phoneNumber: Int) -> String {
         let phoneNumberString = String(phoneNumber)
