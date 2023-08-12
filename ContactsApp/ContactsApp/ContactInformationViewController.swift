@@ -24,6 +24,7 @@ class ContactInformationViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(contactUpdated(_:)), name: Notification.Name("ContactUpdated"), object: nil)
         
     }
+    //format the number in phone number format
     func formatPhoneNumber(phoneNumber: Int) -> String {
         let phoneNumberString = String(phoneNumber)
         let areaCode = phoneNumberString.prefix(3)
@@ -31,7 +32,7 @@ class ContactInformationViewController: UIViewController {
         let lastFourDigits = phoneNumberString.dropFirst(6).prefix(4)
         return "(\(areaCode)) \(firstThreeDigits)-\(lastFourDigits)"
     }
-    
+    //delete contact button function
     @IBAction func deleteContact(_ sender: UIButton) {
         guard let contact = contact, let indexPath = indexPath else {
             // Invalid data, handle the error or return if needed.

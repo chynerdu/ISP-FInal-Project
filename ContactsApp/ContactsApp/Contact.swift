@@ -13,19 +13,19 @@ class Contact: NSObject, NSCoding, NSSecureCoding {
     var firstName: String
     var lastName: String
     var phoneNumber: Int
-    
+    //    initializing
     init(firstName: String, lastName: String, phoneNumber: Int) {
         self.firstName = firstName
         self.lastName = lastName
         self.phoneNumber = phoneNumber
     }
-    
+    //    encoding
     func encode(with coder: NSCoder) {
         coder.encode(firstName, forKey: "firstName")
         coder.encode(lastName, forKey: "lastName")
         coder.encode(phoneNumber, forKey: "phoneNumber")
     }
-    
+    //    decoding
     required init?(coder: NSCoder) {
         firstName = coder.decodeObject(forKey: "firstName") as! String
         lastName = coder.decodeObject(forKey: "lastName") as! String

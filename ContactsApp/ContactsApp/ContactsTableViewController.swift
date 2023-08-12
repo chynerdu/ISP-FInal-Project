@@ -69,9 +69,11 @@ class ContactsTableViewController: UITableViewController, EditContactDelegate {
         tableView.reloadData()
         updateNoResultsLabel()
     }
+    //method to show no sesult is found when searching
     private func updateNoResultsLabel() {
         noResultsLabel.isHidden = !contactList.contacts.isEmpty
     }
+    //cancel the search button functionality
     @objc func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.resignFirstResponder()

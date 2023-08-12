@@ -17,7 +17,7 @@ class editContactViewController: UIViewController {
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var phoneNumber: UITextField!
-    
+    //    Save button functionality
     @IBAction func saveButton(_ sender: UIButton) {
         guard
             let firstName = firstName.text, !firstName.isEmpty,
@@ -40,7 +40,7 @@ class editContactViewController: UIViewController {
             contactToUpdate.phoneNumber = Int(phoneNumberStr) ?? 0
             delegate?.didUpdateContact(contactToUpdate)
             NotificationCenter.default.post(name: Notification.Name("ContactUpdated"), object: contactToUpdate)
-            
+            contactList?.saveContacts()
             showAlertWithDelayedNavigation(title: "Success", message: "Contact updated successfully.")
         }
     }
@@ -55,6 +55,7 @@ class editContactViewController: UIViewController {
         }
         
     }
+    //    Show the alert method
     private func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)

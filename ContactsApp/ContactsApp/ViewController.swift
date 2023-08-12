@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         contactList = ContactList()
         tableView = UITableView()
     }
-    
+    //    Submit button functionality
     @IBAction func submitButton(_ sender: Any) {
         guard
             let firstName = firstName.text, !firstName.isEmpty,
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
             showAlert(title: "Invalid Phone Number", message: "Phone number should have exactly 10 digits.")
             return
         }
-        
+        //    save contact
         let contact = Contact(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber)
         contactList.contacts.insert(contact, at: 0)
         contactList.saveContacts()
