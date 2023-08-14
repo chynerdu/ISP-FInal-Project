@@ -30,13 +30,13 @@ class ViewController: UIViewController {
             let lastName = lastName.text, !lastName.isEmpty,
             let phoneNumberStr = phoneNumber.text, let phoneNumber = Int(phoneNumberStr)
         else {
-            showAlert(title: NSLocalizedString("Missing Information", comment: ""), message: NSLocalizedString("All input fields are required.", comment: ""))
+            shakeAndShowAlert(title: NSLocalizedString("Missing Information", comment: ""), message: NSLocalizedString("All input fields are required.", comment: ""))
             return
         }
         // Perform the phone number validation
         let numericString = String(phoneNumberStr.filter { $0.isNumber })
         if numericString.count != 10 {
-            showAlert(title: NSLocalizedString("Invalid Phone Number", comment: ""), message: NSLocalizedString("Phone number should have exactly 10 digits.", comment: ""))
+            shakeAndShowAlert(title: NSLocalizedString("Invalid Phone Number", comment: ""), message: NSLocalizedString("Phone number should have exactly 10 digits.", comment: ""))
             return
         }
         //    save contact
@@ -69,4 +69,20 @@ class ViewController: UIViewController {
             }
         }
     }
+    func shakeAndShowAlert(title: String, message: String) {
+        // Create a shake animation
+        let shakeAnimation = CABasicAnimation(keyPath: "position")
+        shakeAnimation.duration = 0.08
+        shakeAnimation.repeatCount = 3
+        shakeAnimation.autoreverses = true
+        shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: view.center.x - 10, y: view.center.y))
+        shakeAnimation.toValue = NSValue(cgPoint: CGPoint(x: view.center.x + 10, y: view.center.y))
+        view.layer.add(shakeAnimation, forKey: "position")
+        
+        // Show the alert after the shake animation
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.showAlert(title: title, message: message)
+        }
+    }
+
 }
