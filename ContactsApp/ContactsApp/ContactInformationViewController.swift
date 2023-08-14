@@ -32,11 +32,15 @@ class ContactInformationViewController: UIViewController {
     func startBlinkingAnimation() {
         if !isBlinking {
             isBlinking = true
-            UIView.animate(withDuration: 0.5, delay: 0, options: [.repeat, .autoreverse], animations: {
-                self.phoneNumber.alpha = 0.0
-            }, completion: nil)
+            
+            let blinkingTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
+                self.phoneNumber.isHidden.toggle()
+            }
+            
+            blinkingTimer.fire()
         }
     }
+    
     //phone text colour will be changing dynamically every time page loads
     func getRandomColor() -> UIColor {
         let randomRed = CGFloat.random(in: 0...1)
@@ -90,8 +94,10 @@ class ContactInformationViewController: UIViewController {
             // Update the view with the updated contact's information
             fullName.text = "\(updatedContact.firstName) \(updatedContact.lastName)"
             phoneNumber.text = formatPhoneNumber(phoneNumber: updatedContact.phoneNumber)
+            startBlinkingAnimation()
         }
     }
+    
     
     
     /*
