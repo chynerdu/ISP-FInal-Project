@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9520A41E2A87132200B23C7E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9520A41D2A87132200B23C7E /* Localizable.strings */; };
 		953E7EBD2A621BEC0085ACA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E7EBC2A621BEC0085ACA0 /* AppDelegate.swift */; };
 		953E7EBF2A621BEC0085ACA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E7EBE2A621BEC0085ACA0 /* SceneDelegate.swift */; };
 		953E7EC12A621BEC0085ACA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E7EC02A621BEC0085ACA0 /* ViewController.swift */; };
@@ -21,6 +20,7 @@
 		9559C5A42A7D822400A4AB05 /* ContactsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559C5A32A7D822400A4AB05 /* ContactsList.swift */; };
 		9559C5A62A7D8BF100A4AB05 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559C5A52A7D8BF100A4AB05 /* ContactsTableViewController.swift */; };
 		9559C5A82A7DCE6400A4AB05 /* ContactInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559C5A72A7DCE6400A4AB05 /* ContactInformationViewController.swift */; };
+		958089072A8A758000AEB3D6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 958089092A8A758000AEB3D6 /* Localizable.strings */; };
 		95C0FCCC2A858AF000C1A46E /* editContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C0FCCB2A858AF000C1A46E /* editContactViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +44,6 @@
 /* Begin PBXFileReference section */
 		9520A41B2A8711EA00B23C7E /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Main.strings"; sourceTree = "<group>"; };
 		9520A41C2A8711EA00B23C7E /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		9520A41D2A87132200B23C7E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		953E7EB92A621BEC0085ACA0 /* ContactsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		953E7EBC2A621BEC0085ACA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		953E7EBE2A621BEC0085ACA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +61,8 @@
 		9559C5A32A7D822400A4AB05 /* ContactsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsList.swift; sourceTree = "<group>"; };
 		9559C5A52A7D8BF100A4AB05 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		9559C5A72A7DCE6400A4AB05 /* ContactInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInformationViewController.swift; sourceTree = "<group>"; };
+		958089082A8A758000AEB3D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9580890A2A8A759300AEB3D6 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		95C0FCCB2A858AF000C1A46E /* editContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editContactViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,7 +126,7 @@
 				953E7EC52A621BED0085ACA0 /* Assets.xcassets */,
 				953E7EC72A621BED0085ACA0 /* LaunchScreen.storyboard */,
 				953E7ECA2A621BED0085ACA0 /* Info.plist */,
-				9520A41D2A87132200B23C7E /* Localizable.strings */,
+				958089092A8A758000AEB3D6 /* Localizable.strings */,
 			);
 			path = ContactsApp;
 			sourceTree = "<group>";
@@ -253,7 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				953E7EC92A621BED0085ACA0 /* LaunchScreen.storyboard in Resources */,
-				9520A41E2A87132200B23C7E /* Localizable.strings in Resources */,
+				958089072A8A758000AEB3D6 /* Localizable.strings in Resources */,
 				953E7EC62A621BED0085ACA0 /* Assets.xcassets in Resources */,
 				953E7EC42A621BEC0085ACA0 /* Main.storyboard in Resources */,
 			);
@@ -340,6 +341,15 @@
 				9520A41C2A8711EA00B23C7E /* fr-CA */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		958089092A8A758000AEB3D6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				958089082A8A758000AEB3D6 /* en */,
+				9580890A2A8A759300AEB3D6 /* fr-CA */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
