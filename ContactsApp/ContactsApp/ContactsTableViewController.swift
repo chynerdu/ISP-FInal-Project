@@ -167,6 +167,7 @@ class ContactsTableViewController: UITableViewController, EditContactDelegate {
                 self.contactList.deleteContact(indexPath: indexPath)
                 self.originalContacts = self.contactList.contacts
                 tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.reloadData()
             }
             
             let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
