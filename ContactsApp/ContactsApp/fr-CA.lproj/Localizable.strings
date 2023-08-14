@@ -16,6 +16,6 @@
 "Contact updated successfully." = "Contact mis à jour avec succès.";
 "No matching contacts found." = "Aucun contact correspondant trouvé.";
 "Delete Contact" = "Supprimer le contact";
-"Are you sure you want to delete" = "Êtes-vous sûr de vouloir supprimer";
+"Are you sure you want to delete %@ %@?" = "Êtes-vous sûr de vouloir supprimer %@ %@ ?";
 "Confirm" = "Confirmer";
 "Cancel" = "Annuler";
