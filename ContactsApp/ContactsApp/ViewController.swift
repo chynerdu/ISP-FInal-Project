@@ -30,13 +30,13 @@ class ViewController: UIViewController {
             let lastName = lastName.text, !lastName.isEmpty,
             let phoneNumberStr = phoneNumber.text, let phoneNumber = Int(phoneNumberStr)
         else {
-            showAlert(title: "Missing Information", message: "All input fields are required.")
+            showAlert(title: NSLocalizedString("Missing Information", comment: ""), message: NSLocalizedString("All input fields are required.", comment: ""))
             return
         }
         // Perform the phone number validation
         let numericString = String(phoneNumberStr.filter { $0.isNumber })
         if numericString.count != 10 {
-            showAlert(title: "Invalid Phone Number", message: "Phone number should have exactly 10 digits.")
+            showAlert(title: NSLocalizedString("Invalid Phone Number", comment: ""), message: NSLocalizedString("Phone number should have exactly 10 digits.", comment: ""))
             return
         }
         //    save contact
@@ -49,13 +49,12 @@ class ViewController: UIViewController {
             contactsTableViewController.contactList = contactList
             contactsTableViewController.tableView.reloadData()
         }
-        showAlertWithDelayedNavigation(title: "Success", message: "Contact saved successfully.")
-        
+        showAlertWithDelayedNavigation(title: NSLocalizedString("Success", comment: ""), message: NSLocalizedString("Contact updated successfully.", comment: ""))
     }
     // Function to show an alert with a given message
     private func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }

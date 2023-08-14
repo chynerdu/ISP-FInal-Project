@@ -35,7 +35,7 @@ class ContactsTableViewController: UITableViewController, EditContactDelegate {
         contactList.contacts.sort { $0.firstName.localizedCaseInsensitiveCompare($1.firstName) == .orderedAscending }
         // Initialize the noResultsLabel
         noResultsLabel = UILabel()
-        noResultsLabel.text = "No matching contacts found."
+        noResultsLabel.text = NSLocalizedString("No matching contacts found.", comment: "")
         noResultsLabel.textAlignment = .center
         noResultsLabel.textColor = .gray
         noResultsLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -155,20 +155,21 @@ class ContactsTableViewController: UITableViewController, EditContactDelegate {
             let lastName = contact.lastName
             
             // Show a confirmation dialog box
+            let deleteConfirmationMessage = String(format: NSLocalizedString("Are you sure you want to delete %@ %@?", comment: ""), contact.firstName, contact.lastName)
             let alertController = UIAlertController(
-                title: "Delete Contact",
-                message: "Are you sure you want to delete \(firstName) \(lastName)?",
+                title: NSLocalizedString("Delete Contact", comment: ""),
+                message: deleteConfirmationMessage,
                 preferredStyle: .alert
             )
             
-            let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { _ in
+            let confirmAction = UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .destructive) { _ in
                 // Delete the row from the data source
                 self.contactList.deleteContact(indexPath: indexPath)
                 self.originalContacts = self.contactList.contacts
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
             
             alertController.addAction(confirmAction)
             alertController.addAction(cancelAction)

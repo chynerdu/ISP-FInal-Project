@@ -25,7 +25,7 @@ class ContactInformationViewController: UIViewController {
             startBlinkingAnimation()
             phoneNumber.textColor = getRandomColor()
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(contactUpdated(_:)), name: Notification.Name("ContactUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(contactUpdated(_:)), name: NSNotification.Name("ContactUpdated"), object: nil)
         
     }
     //phone number will be blinking
@@ -61,13 +61,14 @@ class ContactInformationViewController: UIViewController {
         }
         
         // Show a confirmation dialog box
+        let deleteConfirmationMessage = String(format: NSLocalizedString("Are you sure you want to delete %@ %@?", comment: ""), contact.firstName, contact.lastName)
         let alertController = UIAlertController(
-            title: "Delete Contact",
-            message: "Are you sure you want to delete \(contact.firstName) \(contact.lastName)?",
+            title: NSLocalizedString("Delete Contact", comment: ""),
+            message: deleteConfirmationMessage,
             preferredStyle: .alert
         )
         
-        let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { _ in
+        let confirmAction = UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .destructive) { _ in
             // Remove the contact from the table view
             self.contactList.contacts.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .fade)
@@ -76,7 +77,7 @@ class ContactInformationViewController: UIViewController {
             
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
         
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)

@@ -24,13 +24,13 @@ class editContactViewController: UIViewController {
             let lastName = lastName.text, !lastName.isEmpty,
             let phoneNumberStr = phoneNumber.text, let _ = Int(phoneNumberStr)
         else {
-            showAlert(title: "Missing Information", message: "All input fields are required.")
+            showAlert(title: NSLocalizedString("Missing Information", comment: ""), message: NSLocalizedString("All input fields are required.", comment: ""))
             
             return
         }
         let numericString = String(phoneNumberStr.filter { $0.isNumber })
         if numericString.count != 10 {
-            showAlert(title: "Invalid Phone Number", message: "Phone number should have exactly 10 digits.")
+            showAlert(title: NSLocalizedString("Invalid Phone Number", comment: ""), message: NSLocalizedString("Phone number should have exactly 10 digits.", comment: ""))
             return
         }
         // Update the contact's information
@@ -41,7 +41,7 @@ class editContactViewController: UIViewController {
             delegate?.didUpdateContact(contactToUpdate)
             NotificationCenter.default.post(name: Notification.Name("ContactUpdated"), object: contactToUpdate)
             contactList?.saveContacts()
-            showAlertWithDelayedNavigation(title: "Success", message: "Contact updated successfully.")
+            showAlertWithDelayedNavigation(title: NSLocalizedString("Success", comment: ""), message: NSLocalizedString("Contact updated successfully.", comment: ""))
         }
     }
     
@@ -58,7 +58,7 @@ class editContactViewController: UIViewController {
     //    Show the alert method
     private func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
