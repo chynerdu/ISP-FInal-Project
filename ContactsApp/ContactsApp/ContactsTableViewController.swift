@@ -155,7 +155,7 @@ class ContactsTableViewController: UITableViewController, EditContactDelegate {
             let lastName = contact.lastName
             
             // Show a confirmation dialog box
-            let deleteConfirmationMessage = String(format: NSLocalizedString("Are you sure you want to delete %@ %@?", comment: ""), contact.firstName, contact.lastName)
+            let deleteConfirmationMessage = String(format: NSLocalizedString("Are you sure you want to delete %@ %@?", comment: ""), firstName, lastName)
             let alertController = UIAlertController(
                 title: NSLocalizedString("Delete Contact", comment: ""),
                 message: deleteConfirmationMessage,
