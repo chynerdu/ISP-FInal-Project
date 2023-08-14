@@ -106,6 +106,7 @@ class ContactInformationViewController: UIViewController {
         if let dst = segue.destination as? editContactViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 dst.contact = contactList.contacts[indexPath.row]
+                dst.contactList = contactList
             }
         }
     }
